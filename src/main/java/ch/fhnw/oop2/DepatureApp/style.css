@@ -1,0 +1,19 @@
+.button {
+    -fx-background-color: hotpink;
+    -fx-pref-width: 150px;
+    -fx-padding: 10px;
+
+}
+.button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: lightpink;
+}
+#Icon{
+    -fx-font-family: FontAwesome;
+    -fx-font-size: 40px;
+}
+
+
+#neu{
+}
+

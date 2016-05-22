@@ -22,6 +22,8 @@ import java.util.stream.Stream;
 /**
  * Created by Jennifer Müller on 24.04.2016.
  */
+
+// Jenny you know how much I...<3
 public class DepatureAppPM {
     private static final String FILE_NAME = "olten.csv";
     private static final String SEMIKOLON = ";";

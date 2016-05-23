@@ -1,11 +1,9 @@
 package ch.fhnw.oop2.DepatureApp;
 
-import javafx.beans.property.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.EventListener;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,7 +24,7 @@ public class DepatureAppPM {
     private static final String SEMIKOLON = ";";
     private final StringProperty applicationTitle = new SimpleStringProperty("Departure");
     private ObservableList<Depature> depatures = FXCollections.observableArrayList();
-    private  Depature selectedDeparture; // für Binding wichtig!!
+    private Depature selectedDeparture; // für Binding wichtig!!
 
     public DepatureAppPM() {
         depatures.addAll(readFromFile());
@@ -79,11 +76,8 @@ public class DepatureAppPM {
         }
 
     }
-
-    //Default-Einstellung für ein neues Departure
     public String [] list =  {"0"," "," "," "," "," "};
 
-    // Add Methode zum Hinzufügen von einem neuen Departure
     public void addNewDeparture() {
         depatures.add(new Depature(list));
     }

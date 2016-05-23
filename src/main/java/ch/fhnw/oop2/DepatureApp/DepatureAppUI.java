@@ -3,8 +3,6 @@ package ch.fhnw.oop2.DepatureApp;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.control.TableView;
@@ -21,7 +19,7 @@ public class DepatureAppUI extends BorderPane {
         Attribute
      -------------------------*/
 
-    private final DepatureAppPM pm;
+    private final Depature.DepatureAppPM pm;
 
 
 
@@ -70,7 +68,7 @@ public class DepatureAppUI extends BorderPane {
      -------------------------*/
 
 
-    public DepatureAppUI(DepatureAppPM pm){
+    public DepatureAppUI(Depature.DepatureAppPM pm){
         this.pm=pm;
         initializeControls();
         layoutControls();

@@ -70,8 +70,8 @@ public class DepatureAppUI extends BorderPane {
      -------------------------*/
 
 
-        public DepatureAppUI(DepatureAppPM pm){
-            this.pm=pm;
+    public DepatureAppUI(DepatureAppPM pm){
+        this.pm=pm;
         initializeControls();
         layoutControls();
         addEventHandlers();
@@ -192,17 +192,19 @@ public class DepatureAppUI extends BorderPane {
 
     private void addEventHandlers() { // TODO Eventhandlers
         speichern.setOnAction(event -> pm.save());
-    }
-
-
-            private void addBindings() { // TODO Bindings noch richtigt einstellen
-                tfAbfahrt.textProperty().bindBidirectional(pm.getSelectedDeparture().uhrzeitProperty());
-                tfGleis.textProperty().bindBidirectional(pm.getSelectedDeparture().gleisProperty());
-                tfZugnummer.textProperty().bindBidirectional(pm.getSelectedDeparture().zugnummerProperty());
-                taZwischenhalte.textProperty().bindBidirectional(pm.getSelectedDeparture().ueberProperty());
-                tfNach.textProperty().bindBidirectional(pm.getSelectedDeparture().inRichtungProperty());
-
-            }
+        neu.setOnAction(event -> pm.addNewDeparture()); // auf der rechten Seite immer Methoden auf dem Mode
 
     }
+
+
+    private void addBindings() { // TODO Bindings noch richtigt einstellen
+        tfAbfahrt.textProperty().bindBidirectional(pm.getSelectedDeparture().uhrzeitProperty());
+        tfGleis.textProperty().bindBidirectional(pm.getSelectedDeparture().gleisProperty());
+        tfZugnummer.textProperty().bindBidirectional(pm.getSelectedDeparture().zugnummerProperty());
+        taZwischenhalte.textProperty().bindBidirectional(pm.getSelectedDeparture().ueberProperty());
+        tfNach.textProperty().bindBidirectional(pm.getSelectedDeparture().inRichtungProperty());
+
+    }
+
+}
 

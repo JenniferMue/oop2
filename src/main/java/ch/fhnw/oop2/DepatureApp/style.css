@@ -1,10 +1,10 @@
 .button {
     -fx-background-color:
-        #ecebe9,
-        rgba(0,0,0,0.05),
-        linear-gradient(#dcca8a, #c7a740),
-        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
-        linear-gradient(#f6ebbe, #e6c34d);
+            #ecebe9,
+            rgba(0,0,0,0.05),
+            linear-gradient(#dcca8a, #c7a740),
+            linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+            linear-gradient(#f6ebbe, #e6c34d);
     -fx-background-insets: 0,9 9 8 9,9,10,11;
     -fx-background-radius: 50;
     -fx-padding: 15 30 15 30;
@@ -15,7 +15,7 @@
 }
 .button:hover {
     -fx-cursor: hand;
-    -fx-background-color: blue;
+    -fx-background-color: lightgreen;
 }
 #Icon{
     -fx-font-family: FontAwesome;
@@ -25,4 +25,3 @@
 
 #neu{
 }
-

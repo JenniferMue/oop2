@@ -22,8 +22,6 @@ import java.util.stream.Stream;
 /**
  * Created by Jennifer Müller on 24.04.2016.
  */
-
-// Jenny you know how much I...<3
 public class DepatureAppPM {
     private static final String FILE_NAME = "olten.csv";
     private static final String SEMIKOLON = ";";
@@ -80,6 +78,14 @@ public class DepatureAppPM {
             throw new IllegalArgumentException(e);
         }
 
+    }
+
+    //Default-Einstellung für ein neues Departure
+    public String [] list =  {"0"," "," "," "," "," "};
+
+    // Add Methode zum Hinzufügen von einem neuen Departure
+    public void addNewDeparture() {
+        depatures.add(new Depature(list));
     }
 
     public String getApplicationTitle() {

@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 /**
  * Created by Jennifer Müller on 24.04.2016.
  */
-public class DepatureAppApplication extends Application{
+public class DepartureAppApplication extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-       DepatureAppPM pm = new DepatureAppPM();
+        DepatureAppPM pm = new DepatureAppPM();
 
         Parent rootPanel = new DepatureAppUI(pm);
 

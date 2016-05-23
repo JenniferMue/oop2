@@ -83,19 +83,27 @@ public class DepatureAppPM {
 
     }
 
+    // ADD-Methode
+
     public String [] list =  {"0"," "," "," "," "," "};
 
-    public void addNewDeparture() {
-        departures.add(new Departure(list));
+    public void addNewDeparture(TableView tableView) {
+        int scroll = 0;
+        departures.add(new Departure(list)); // neues Element mit default-Werten von list übernehmen
+        tableView.getSelectionModel().selectLast();// selektiert die neue Departure
+        scroll=tableView.getSelectionModel().getSelectedIndex(); //index vom selektierten (neu hinzugefügten) Departure
+        tableView.scrollTo(scroll); //scrollt ans Ende
+
 
     }
 
-
-
+    //Delete-Methode
     public void removeDeparture(TableView tableView){
         departures.remove(tableView.getSelectionModel().getSelectedIndex());
    }
 
+
+    //Getter Setter
 
     public String getApplicationTitle() {
         return applicationTitle.get();

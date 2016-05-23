@@ -3,8 +3,6 @@ package ch.fhnw.oop2.DepatureApp;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.control.TableView;
@@ -41,14 +39,14 @@ public class DepatureAppUI extends BorderPane {
 
     // Center
     private SplitPane splitPane;
-    public TableView<Depature> leftSide;    // linke Seite für das Center
+    public TableView<Departure> leftSide;    // linke Seite für das Center
     private GridPane rightSide;             // rechte Seite für das Center
 
     //Linke Seite (leftSide)
     private TableColumn status; // TODO Object Bild einfügen
-    private TableColumn<Depature, String> departure;
-    private TableColumn<Depature, String> to;
-    private TableColumn<Depature, String> track;
+    private TableColumn<Departure, String> departure;
+    private TableColumn<Departure, String> to;
+    private TableColumn<Departure, String> track;
 
 
     // Attribute für rechten Bereich (rightside)
@@ -214,12 +212,14 @@ public class DepatureAppUI extends BorderPane {
     private void addEventHandlers() { // TODO Eventhandlers
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture()); // auf der rechten Seite immer Methoden auf dem Mode
-        löschen.setOnAction(event -> pm.deleteDeparture());
+        löschen.setOnAction(event -> pm.removeDeparture(leftSide));
+
+
 
 
     }
 
-    private void addBindings() { // TODO Bindings noch richtigt einstellen
+    private void addBindings() {
     }
 
 }

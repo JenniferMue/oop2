@@ -26,22 +26,22 @@ public class DepatureAppPM {
     private static final String FILE_NAME = "olten.csv";
     private static final String SEMIKOLON = ";";
     private final StringProperty applicationTitle = new SimpleStringProperty("Departure");
-    static ObservableList<Depature> depatures = FXCollections.observableArrayList();
+    static ObservableList<Departure> departures = FXCollections.observableArrayList();
 
-    private ObjectProperty<Depature> selectedDeparture = new SimpleObjectProperty<>();
+    private ObjectProperty<Departure> selectedDeparture = new SimpleObjectProperty<>();
 
-    private TableView<Depature> tableView= new TableView<>();
+    private TableView<Departure> tableView= new TableView<>();
 
     public DepatureAppPM() {
-        depatures.addAll(readFromFile());
-        setSelectedDeparture(depatures.get(0)); // TODO diese Zeilen werden eingelesen, noch nicht fertig! Nur das Binding funktioniert
+        departures.addAll(readFromFile());
+        setSelectedDeparture(departures.get(0));
     }
 
     public void save() {
         try (BufferedWriter writer = Files.newBufferedWriter(getPath(FILE_NAME, true))) {
             writer.write("id ;Uhrzeit;Zugnummer;in Richtung;Über;Gleis");
             writer.newLine();
-            depatures.stream().forEach(departures -> {
+            departures.stream().forEach(departures -> {
                 try {
                     writer.write(departures.infoAsLine());
                     writer.newLine();
@@ -55,10 +55,10 @@ public class DepatureAppPM {
     }
 
 
-    private List<Depature> readFromFile() {
+    private List<Departure> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {
             return stream.skip(1)                              // erste Zeile ist die Headerzeile; ueberspringen
-                    .map(s -> new Depature(s.split(SEMIKOLON))) // aus jeder Zeile ein Objekt machen
+                    .map(s -> new Departure(s.split(SEMIKOLON))) // aus jeder Zeile ein Objekt machen
                     .collect(Collectors.toList());        // alles aufsammeln
         }
     }
@@ -86,16 +86,14 @@ public class DepatureAppPM {
     public String [] list =  {"0"," "," "," "," "," "};
 
     public void addNewDeparture() {
-        depatures.add(new Depature(list));
+        departures.add(new Departure(list));
+
     }
 
-    public void deleteDeparture()
-    {
-        depatures.removeAll();
-    }
 
-    static void removeDeparture(TableView tableView){
-        depatures.remove(tableView.getSelectionModel().getSelectedIndex());
+
+    public void removeDeparture(TableView tableView){
+        departures.remove(tableView.getSelectionModel().getSelectedIndex());
    }
 
 
@@ -107,8 +105,8 @@ public class DepatureAppPM {
         return applicationTitle;
     }
 
-    public ObservableList<Depature> getDepatures() {
-        return depatures;
+    public ObservableList<Departure> getDepatures() {
+        return departures;
     }
 
     public static String getFileName() {
@@ -123,15 +121,15 @@ public class DepatureAppPM {
         this.applicationTitle.set(applicationTitle);
     }
 
-    public Depature getSelectedDeparture() {
+    public Departure getSelectedDeparture() {
         return selectedDeparture.get();
     }
 
-    public ObjectProperty<Depature> selectedDepartureProperty() {
+    public ObjectProperty<Departure> selectedDepartureProperty() {
         return selectedDeparture;
     }
 
-    public void setSelectedDeparture(Depature selectedDeparture) {
+    public void setSelectedDeparture(Departure selectedDeparture) {
         this.selectedDeparture.set(selectedDeparture);
     }
 }

@@ -89,6 +89,11 @@ public class DepatureAppPM {
         depatures.add(new Depature(list));
     }
 
+    public void deleteDeparture()
+    {
+        depatures.removeAll();
+    }
+
     static void removeDeparture(TableView tableView){
         depatures.remove(tableView.getSelectionModel().getSelectedIndex());
    }

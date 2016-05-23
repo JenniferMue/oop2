@@ -30,7 +30,7 @@ public class DepatureAppPM {
 
     private ObjectProperty<Departure> selectedDeparture = new SimpleObjectProperty<>();
 
-    private TableView<Departure> tableView= new TableView<>();
+    private TableView<Departure> tableView = new TableView<>();
 
     public DepatureAppPM() {
         departures.addAll(readFromFile());
@@ -53,7 +53,6 @@ public class DepatureAppPM {
             throw new IllegalStateException("save failed");
         }
     }
-
 
     private List<Departure> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {
@@ -85,22 +84,20 @@ public class DepatureAppPM {
 
     // ADD-Methode
 
-    public String [] list =  {"0"," "," "," "," "," "};
+    public String[] list = {"0", " ", " ", " ", " ", " "};
 
     public void addNewDeparture(TableView tableView) {
         int scroll = 0;
         departures.add(new Departure(list)); // neues Element mit default-Werten von list übernehmen
         tableView.getSelectionModel().selectLast();// selektiert die neue Departure
-        scroll=tableView.getSelectionModel().getSelectedIndex(); //index vom selektierten (neu hinzugefügten) Departure
+        scroll = tableView.getSelectionModel().getSelectedIndex(); //index vom selektierten (neu hinzugefügten) Departure
         tableView.scrollTo(scroll); //scrollt ans Ende
-
-
     }
 
     //Delete-Methode
-    public void removeDeparture(TableView tableView){
+    public void removeDeparture(TableView tableView) {
         departures.remove(tableView.getSelectionModel().getSelectedIndex());
-   }
+    }
 
 
     //Getter Setter

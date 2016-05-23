@@ -31,7 +31,6 @@ public class Departure {
     private final StringProperty gleis = new SimpleStringProperty();
 
 
-
     public Departure(String[] line) {
         setId(Integer.parseInt(line[0]));
         setUhrzeit(line[1]);
@@ -167,7 +166,7 @@ public class Departure {
 
         public DepatureAppPM() {
             departures.addAll(readFromFile());
-            selectedDeparture= departures.get(0); // TODO diese Zeilen werden eingelesen, noch nicht fertig! Nur das Binding funktioniert
+            selectedDeparture = departures.get(0);
         }
 
         public void save() {
@@ -217,7 +216,7 @@ public class Departure {
         }
 
         //Default-Einstellung für ein neues Departure
-        public String [] list =  {"0"," "," "," "," "," "};
+        public String[] list = {"0", " ", " ", " ", " ", " "};
 
         // Add Methode zum Hinzufügen von einem neuen Departure
         public void addNewDeparture() {

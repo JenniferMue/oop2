@@ -1,13 +1,11 @@
 package ch.fhnw.oop2.DepatureApp;
 
-
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
-
 
 
 /**
@@ -84,7 +82,7 @@ public class DepatureAppUI extends BorderPane {
 
 
         pm.selectedDepartureProperty().addListener((observable, oldValue, newValue) -> {
-            if(oldValue != null){
+            if (oldValue != null) {
                 tfAbfahrt.textProperty().unbindBidirectional(oldValue.uhrzeitProperty());
                 tfGleis.textProperty().unbindBidirectional(oldValue.gleisProperty());
                 tfZugnummer.textProperty().unbindBidirectional(oldValue.zugnummerProperty());
@@ -92,16 +90,14 @@ public class DepatureAppUI extends BorderPane {
                 tfNach.textProperty().unbindBidirectional(oldValue.inRichtungProperty());
             }
 
-            if(newValue != null){
+            if (newValue != null) {
                 tfAbfahrt.textProperty().bindBidirectional(newValue.uhrzeitProperty());
                 tfGleis.textProperty().bindBidirectional(newValue.gleisProperty());
                 tfZugnummer.textProperty().bindBidirectional(newValue.zugnummerProperty());
                 taZwischenhalte.textProperty().bindBidirectional(newValue.ueberProperty());
                 tfNach.textProperty().bindBidirectional(newValue.inRichtungProperty());
             }
-
         });
-
     }
 
      /*------------------------
@@ -109,6 +105,7 @@ public class DepatureAppUI extends BorderPane {
      -------------------------*/
 
     private void initializeControls() {
+
         // Top
         FontAwesomeIconView saveIcon = new FontAwesomeIconView(FontAwesomeIcon.SAVE);
         speichern = new Button("", saveIcon);
@@ -140,7 +137,6 @@ public class DepatureAppUI extends BorderPane {
         suche = new TextField("Suche");
         top = new HBox();
 
-
         // Center
         splitPane = new SplitPane();
         leftSide = new TableView(pm.getDepatures());
@@ -166,7 +162,6 @@ public class DepatureAppUI extends BorderPane {
         tfZugnummer = new TextField();
         tfGleis = new TextField();
         taZwischenhalte = new TextArea();
-
     }
 
     private void layoutControls() {
@@ -206,14 +201,12 @@ public class DepatureAppUI extends BorderPane {
 
         // fill Splitpane with leftSide and rightSide
         splitPane.getItems().addAll(leftSide, rightSide);
-
     }
 
-    private void addEventHandlers() { // TODO Eventhandlers
+    private void addEventHandlers() {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
-
     }
 
     private void addBindings() {

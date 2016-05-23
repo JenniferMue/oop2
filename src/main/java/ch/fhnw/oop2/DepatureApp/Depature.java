@@ -253,6 +253,7 @@ public class Depature {
         }
 
         public void setSelectedDeparture(Depature selectedDeparture) {
+            System.out.println(selectedDeparture);
             this.selectedDeparture = selectedDeparture;
         }
 

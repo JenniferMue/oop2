@@ -13,15 +13,13 @@
     -fx-text-fill: #311c09;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
+
 .button:hover {
     -fx-cursor: hand;
     -fx-background-color: lightgreen;
 }
+
 #Icon{
     -fx-font-family: FontAwesome;
     -fx-font-size: 40px;
-}
-
-
-#neu{
 }

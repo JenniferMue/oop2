@@ -13,7 +13,7 @@ public class DepartureAppApplication extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Depature.DepatureAppPM pm = new Depature.DepatureAppPM();
+        DepatureAppPM pm = new DepatureAppPM();
 
         Parent rootPanel = new DepatureAppUI(pm);
 

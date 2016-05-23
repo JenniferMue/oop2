@@ -1,9 +1,12 @@
 package ch.fhnw.oop2.DepatureApp;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -23,12 +26,15 @@ public class DepatureAppPM {
     private static final String FILE_NAME = "olten.csv";
     private static final String SEMIKOLON = ";";
     private final StringProperty applicationTitle = new SimpleStringProperty("Departure");
-    private ObservableList<Depature> depatures = FXCollections.observableArrayList();
-    private Depature selectedDeparture; // für Binding wichtig!!
+    static ObservableList<Depature> depatures = FXCollections.observableArrayList();
+
+    private ObjectProperty<Depature> selectedDeparture = new SimpleObjectProperty<>();
+
+    private TableView<Depature> tableView= new TableView<>();
 
     public DepatureAppPM() {
         depatures.addAll(readFromFile());
-        selectedDeparture=depatures.get(0); // TODO diese Zeilen werden eingelesen, noch nicht fertig! Nur das Binding funktioniert
+        setSelectedDeparture(depatures.get(0)); // TODO diese Zeilen werden eingelesen, noch nicht fertig! Nur das Binding funktioniert
     }
 
     public void save() {
@@ -83,6 +89,10 @@ public class DepatureAppPM {
         depatures.add(new Depature(list));
     }
 
+    static void removeDeparture(TableView tableView){
+        depatures.remove(tableView.getSelectionModel().getSelectedIndex());
+   }
+
 
     public String getApplicationTitle() {
         return applicationTitle.get();
@@ -109,11 +119,14 @@ public class DepatureAppPM {
     }
 
     public Depature getSelectedDeparture() {
+        return selectedDeparture.get();
+    }
+
+    public ObjectProperty<Depature> selectedDepartureProperty() {
         return selectedDeparture;
     }
 
     public void setSelectedDeparture(Depature selectedDeparture) {
-        this.selectedDeparture = selectedDeparture;
+        this.selectedDeparture.set(selectedDeparture);
     }
-
 }

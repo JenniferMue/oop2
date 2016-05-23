@@ -76,11 +76,13 @@ public class DepatureAppPM {
         }
 
     }
+
     public String [] list =  {"0"," "," "," "," "," "};
 
     public void addNewDeparture() {
         depatures.add(new Depature(list));
     }
+
 
     public String getApplicationTitle() {
         return applicationTitle.get();

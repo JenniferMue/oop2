@@ -190,6 +190,7 @@ public class DepatureAppUI extends BorderPane {
 
     private void addEventHandlers() { // TODO Eventhandlers
         speichern.setOnAction(event -> pm.save());
+
         neu.setOnAction(event -> pm.addNewDeparture()); // auf der rechten Seite immer Methoden auf dem Mode
 
     }

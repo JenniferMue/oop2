@@ -31,6 +31,9 @@ public class LanguageHandler {
             ResourceBundle bundle = ResourceBundle.getBundle(baseName, abbrev);
             ui.setAbfahrt(bundle.getString("Abfahrt"));
             ui.setGleis(bundle.getString("Gleis"));
+            ui.setNach(bundle.getString("nach"));
+            ui.setZugnummer(bundle.getString("Zugnummer"));
+            ui.setZwischenhalte(bundle.getString("Zwischenhalte"));
 
         } catch(MissingResourceException exception) {
             System.out.println(exception.getMessage());

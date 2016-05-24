@@ -70,12 +70,25 @@ public class DepatureAppUI extends BorderPane {
         Konstruktor
      -------------------------*/
 
+    //setterMethode für Labels
     public void setAbfahrt(String text){
         abfahrt.textProperty().setValue(text);
     }
 
     public void setGleis(String text){
         gleis.textProperty().setValue(text);
+    }
+
+    public void setZugnummer(String text){
+        zugnummer.textProperty().setValue(text);
+    }
+
+    public void setZwischenhalte(String text){
+        zwischehalte.textProperty().setValue(text);
+    }
+
+    public void setNach(String text){
+        nach.textProperty().setValue(text);
     }
 
 
@@ -131,10 +144,10 @@ public class DepatureAppUI extends BorderPane {
 
         // Rechter Bereich
         abfahrt = new Label();
-        nach = new Label("nach");
-        zugnummer = new Label("Zugnummer");
+        nach = new Label();
+        zugnummer = new Label();
         gleis = new Label();
-        zwischehalte = new Label("Zwischenhalte");
+        zwischehalte = new Label();
         tfAbfahrt = new TextField();
         tfNach = new TextField();
         tfZugnummer = new TextField();
@@ -170,6 +183,7 @@ public class DepatureAppUI extends BorderPane {
         start = new Button("", startIcon);
         startIcon.setId("Icon");
 
+        //construct languagehandler with ComboBox
         languagehandler = new LanguageHandler(this);
         language = new ComboBox<>(languagehandler.getList());
         suche = new TextField("Suche");
@@ -226,6 +240,8 @@ public class DepatureAppUI extends BorderPane {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
+
+        //change the language to new value
         language.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Locale>() {
             @Override
             public void changed(ObservableValue<? extends Locale> observable, Locale oldValue, Locale newValue) {

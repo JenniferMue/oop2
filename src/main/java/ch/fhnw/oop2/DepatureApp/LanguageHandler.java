@@ -27,7 +27,7 @@ public class LanguageHandler {
     public void changeLanguage (Locale abbrev) {
 
         try {
-            String baseName =  "ch.fhnw.oop2.DepatureApp.resources.DepartureBundles";
+            String baseName =  "DepartureBundles";
             ResourceBundle bundle = ResourceBundle.getBundle(baseName, abbrev);
             ui.setAbfahrt(bundle.getString("Abfahrt"));
             ui.setGleis(bundle.getString("Gleis"));

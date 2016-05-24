@@ -16,9 +16,9 @@
 
 .button:hover {
     -fx-background-color:
-            lightpink,
+            purple,
             rgba(0,0,0,0.05),
-            linear-gradient(lightgreen, lightgreen),
+            linear-gradient(purple, purple),
             linear-gradient(pink 0%, pink 20%, pink 80%, pink 100%),
             linear-gradient(pink, pink);
     -fx-background-insets: 0,9 9 8 9,9,10,11;

@@ -17,7 +17,7 @@ public class LanguageHandler {
     public LanguageHandler(DepatureAppUI ui) {
         this.ui = ui;
         this.ol = FXCollections.observableArrayList();
-        ol.addAll(Locale.GERMAN, Locale.ENGLISH);
+        ol.addAll(Locale.GERMAN, Locale.ENGLISH, Locale.ITALIAN);
     }
 
     public ObservableList<Locale> getList(){
@@ -34,6 +34,9 @@ public class LanguageHandler {
             ui.setNach(bundle.getString("nach"));
             ui.setZugnummer(bundle.getString("Zugnummer"));
             ui.setZwischenhalte(bundle.getString("Zwischenhalte"));
+            ui.setDeparture(bundle.getString("Departure"));
+            ui.setTo(bundle.getString("To"));
+            ui.setTrack(bundle.getString("Track"));
 
         } catch(MissingResourceException exception) {
             System.out.println(exception.getMessage());

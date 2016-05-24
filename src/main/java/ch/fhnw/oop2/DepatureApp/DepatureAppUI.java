@@ -91,6 +91,18 @@ public class DepatureAppUI extends BorderPane {
         nach.textProperty().setValue(text);
     }
 
+    public void setDeparture(String text){
+        departure.textProperty().setValue(text);
+    }
+
+    public void setTo(String text){
+        to.textProperty().setValue(text);
+    }
+
+    public void setTrack(String text){
+        track.textProperty().setValue(text);
+    }
+
 
     public DepatureAppUI(DepatureAppPM pm) {
         this.pm = pm;
@@ -135,11 +147,11 @@ public class DepatureAppUI extends BorderPane {
     private void initializeControls() {
         // Linker Bereich
         status = new TableColumn();
-        departure = new TableColumn("Abfahrt");
+        departure = new TableColumn();
         departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
-        to = new TableColumn("nach");
+        to = new TableColumn();
         to.setCellValueFactory(param -> param.getValue().inRichtungProperty());
-        track = new TableColumn("Gleis");
+        track = new TableColumn();
         track.setCellValueFactory(param -> param.getValue().gleisNummerProberty());
 
         // Rechter Bereich

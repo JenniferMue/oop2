@@ -17,7 +17,7 @@ public class LanguageHandler {
     public LanguageHandler(DepatureAppUI ui) {
         this.ui = ui;
         this.ol = FXCollections.observableArrayList();
-        ol.addAll(Locale.GERMAN, Locale.ENGLISH, Locale.ITALIAN);
+        ol.addAll(Locale.GERMAN, Locale.ENGLISH, Locale.ITALIAN, Locale.FRANCE);
     }
 
     public ObservableList<Locale> getList(){

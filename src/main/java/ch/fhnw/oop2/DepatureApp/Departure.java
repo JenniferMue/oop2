@@ -1,11 +1,11 @@
 package ch.fhnw.oop2.DepatureApp;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import ch.fhnw.oop2.led.LedBuilder;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.paint.Color;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -29,6 +29,10 @@ public class Departure {
     private final StringProperty inRichtung = new SimpleStringProperty();
     private final StringProperty ueber = new SimpleStringProperty();
     private final StringProperty gleis = new SimpleStringProperty();
+    private final ObjectProperty<Node> led = new SimpleObjectProperty<>(LedBuilder.create().on(true).ledColor(Color.GREEN).build());
+
+
+
 
 
     public Departure(String[] line) {
@@ -82,6 +86,18 @@ public class Departure {
 
 
     // Getter & Setter
+
+    public Node getLed() {
+        return led.get();
+    }
+
+    public ObjectProperty<Node> ledProperty() {
+        return led;
+    }
+
+    public void setLed(Node led) {
+        this.led.set(led);
+    }
     public Integer getId() {
         return id.get();
     }
@@ -186,26 +202,7 @@ public class Departure {
             }
         }
 
-        /*public void undo()
-        {
-            if (depatures.equals("add"))
-            {
-                try
-                {
-                    model.re(tier);
-                }
-                catch (Exception e)
-                {
-                }
-            }
-            else if (aktion.equals("remove"))
-            {
-                model.addTier(position, tier);
-            }
-            else
-                ;
 
-        }*/
 
 
         private List<Departure> readFromFile() {

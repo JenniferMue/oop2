@@ -25,6 +25,7 @@ import java.util.stream.Stream;
 public class DepatureAppPM {
     private static final String FILE_NAME = "olten.csv";
     private static final String SEMIKOLON = ";";
+    private DepatureAppPM pm;
     private final StringProperty applicationTitle = new SimpleStringProperty("Departure");
     static ObservableList<Departure> departures = FXCollections.observableArrayList();
 
@@ -54,7 +55,9 @@ public class DepatureAppPM {
         }
     }
 
-    private List<Departure> readFromFile() {
+
+
+        private List<Departure> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {
             return stream.skip(1)                              // erste Zeile ist die Headerzeile; ueberspringen
                     .map(s -> new Departure(s.split(SEMIKOLON))) // aus jeder Zeile ein Objekt machen
@@ -98,9 +101,18 @@ public class DepatureAppPM {
     public void removeDeparture(TableView tableView) {
         departures.remove(tableView.getSelectionModel().getSelectedIndex());
     }
+    public void undo() {
+        if (departures.equals("neu")) {
+            try {
+                departures.remove(tableView.getSelectionModel().getSelectedIndex());
+            } catch (Exception e) {
+            }
+        }
+    }
 
 
-    //Getter Setter
+
+        //Getter Setter
 
     public String getApplicationTitle() {
         return applicationTitle.get();

@@ -5,6 +5,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
@@ -51,6 +52,7 @@ public class DepatureAppUI extends BorderPane {
     private TableColumn<Departure, String> departure;
     private TableColumn<Departure, String> to;
     private TableColumn<Departure, String> track;
+    private TableColumn<Departure, Node> led;
 
 
     // Attribute für rechten Bereich (rightside)
@@ -75,8 +77,9 @@ public class DepatureAppUI extends BorderPane {
         abfahrt.textProperty().setValue(text);
     }
 
-    public void setGleis(String text){
-        gleis.textProperty().setValue(text);
+    public void setLed(String text) { led.textProperty().setValue(text);}
+
+    public void setGleis(String text){gleis.textProperty().setValue(text);
     }
 
     public void setZugnummer(String text){
@@ -153,6 +156,8 @@ public class DepatureAppUI extends BorderPane {
         to.setCellValueFactory(param -> param.getValue().inRichtungProperty());
         track = new TableColumn();
         track.setCellValueFactory(param -> param.getValue().gleisNummerProberty());
+        led = new TableColumn();
+        led.setCellValueFactory(param -> param.getValue().ledProperty());
 
         // Rechter Bereich
         abfahrt = new Label();
@@ -221,7 +226,7 @@ public class DepatureAppUI extends BorderPane {
         setCenter(splitPane);
 
         // fill leftside (TableView) of Splitpane
-        leftSide.getColumns().addAll(status, departure, to, track);
+        leftSide.getColumns().addAll(led, status, departure, to, track);
 
         // rightSide (Gridpane)
         ColumnConstraints cc = new ColumnConstraints();
@@ -252,6 +257,9 @@ public class DepatureAppUI extends BorderPane {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
+        undo.setOnAction(event -> pm.undo());
+
+
 
         //change the language to new value
         language.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Locale>() {

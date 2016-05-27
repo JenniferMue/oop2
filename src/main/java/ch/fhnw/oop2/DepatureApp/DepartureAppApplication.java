@@ -15,9 +15,12 @@ public class DepartureAppApplication extends Application {
 
         DepatureAppPM pm = new DepatureAppPM();
 
-        Parent rootPanel = new DepatureAppUI(pm);
+        DepatureAppUI rootPanel = new DepatureAppUI(pm);
 
-        Scene scene = new Scene(rootPanel);
+        DepartureStartUI startUI = new DepartureStartUI(rootPanel);
+        startUI.setPrefSize(1000, 500);
+
+        Scene scene = new Scene(startUI);
 
         String stylesheet = getClass().getResource("style.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
@@ -25,6 +28,7 @@ public class DepartureAppApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
+        startUI.animationPlay();
     }
 
     public static void main(String[] args) {

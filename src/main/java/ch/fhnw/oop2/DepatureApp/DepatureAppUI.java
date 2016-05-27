@@ -10,6 +10,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -41,6 +47,7 @@ public class DepatureAppUI extends BorderPane {
     private ComboBox<Locale> language;
     private LanguageHandler languagehandler;
     private TextField suche;
+    private Date date;
 
     // Center
     private SplitPane splitPane;
@@ -116,6 +123,7 @@ public class DepatureAppUI extends BorderPane {
         addBindings();
         language.getSelectionModel().select(0);
     }
+
 
 
     private void addValueChangedListeners() {
@@ -199,6 +207,8 @@ public class DepatureAppUI extends BorderPane {
         FontAwesomeIconView startIcon = new FontAwesomeIconView(FontAwesomeIcon.PLAY);
         start = new Button("", startIcon);
         startIcon.setId("Icon");
+        date = new Date();
+
 
         //construct languagehandler with ComboBox
         languagehandler = new LanguageHandler(this);

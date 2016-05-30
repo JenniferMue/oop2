@@ -15,7 +15,7 @@ import javafx.util.Duration;
 public class DepartureStartUI extends Pane {
 
     private DepatureAppUI AppUI;
-    final Line line = new Line(100, 100, 800, 400);
+    final Line line = new Line(100, 100, 800, 100);
     final PathTransition transition;
     final Duration duration = Duration.seconds(2.);
 

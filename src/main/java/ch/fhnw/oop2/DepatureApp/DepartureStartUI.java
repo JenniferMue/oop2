@@ -15,7 +15,7 @@ import javafx.util.Duration;
 public class DepartureStartUI extends Pane {
 
     private DepatureAppUI AppUI;
-    final Line line = new Line(100, 100, 400, 100);
+    final Line line = new Line(100, 100, 800, 400);
     final PathTransition transition;
     final Duration duration = Duration.seconds(2.);
 
@@ -24,7 +24,7 @@ public class DepartureStartUI extends Pane {
     public DepartureStartUI(DepatureAppUI AppUI) {
         this.AppUI = AppUI;
         this.imageView = new ImageView(new Image("zugx.png"));
-        imageView.setFitWidth(50);
+        imageView.setFitWidth(40);
         imageView.setFitHeight(25);
         imageView.setX(125);
         imageView.setY(87.75);

@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 /**
@@ -15,7 +16,7 @@ import javafx.util.Duration;
 public class DepartureStartUI extends Pane {
 
     private DepatureAppUI AppUI;
-    final Line line = new Line(100, 100, 800, 100);
+    final Line line = new Line(100, 400, 950, 400);
     final PathTransition transition;
     final Duration duration = Duration.seconds(2.);
 
@@ -24,8 +25,8 @@ public class DepartureStartUI extends Pane {
     public DepartureStartUI(DepatureAppUI AppUI) {
         this.AppUI = AppUI;
         this.imageView = new ImageView(new Image("zugx.png"));
-        imageView.setFitWidth(40);
-        imageView.setFitHeight(25);
+        imageView.setFitWidth(80);
+        imageView.setFitHeight(50);
         imageView.setX(125);
         imageView.setY(87.75);
         this.transition = new PathTransition(duration, line, imageView);

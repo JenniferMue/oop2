@@ -18,7 +18,7 @@ public class DepartureStartUI extends Pane {
     private DepatureAppUI AppUI;
     final Line line = new Line(100, 400, 950, 400);
     final PathTransition transition;
-    final Duration duration = Duration.seconds(2.);
+    final Duration duration = Duration.seconds(1.5);
 
     private ImageView imageView;
 

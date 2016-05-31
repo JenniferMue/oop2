@@ -5,46 +5,54 @@ import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 /**
  * Created by Steven on 27.05.16.
  */
-public class DepartureStartUI extends Pane {
+public class DepartureStartUI extends BorderPane {
 
     private DepatureAppUI AppUI;
-    final Line line = new Line(100, 400, 750, 400);
+    final Line rail = new Line(0, 400, 1000, 400);
+    final Line trainLine = new Line(200, 430, 760, 430);
+
     final PathTransition transition;
-    final Duration duration = Duration.seconds(1.5);
+    final PathTransition transitionRail;
+    final Duration duration = Duration.seconds(2.5);
 
     private ImageView imageView;
     private ImageView imageView2;
-    private ImageView imageView3;
+
+
 
     public DepartureStartUI(DepatureAppUI AppUI) {
         this.AppUI = AppUI;
+
         this.imageView2 = new ImageView(new Image("station.png"));
-        imageView2.setFitWidth(160);
-        imageView2.setFitHeight(100);
-        imageView2.setX(825);
-        imageView2.setY(320.75);
-        this.imageView3 = new ImageView(new Image("fhnw.png"));
-        imageView3.setFitWidth(160);
-        imageView3.setFitHeight(100);
-        imageView3.setX(125);
-        imageView3.setY(120.75);
+        imageView2.setFitWidth(320);
+        imageView2.setFitHeight(200);
+        imageView2.setX(625);
+        imageView2.setY(200.75);
+
+
         this.imageView = new ImageView(new Image("zugx.png"));
-        imageView.setFitWidth(80);
-        imageView.setFitHeight(50);
-        imageView.setX(125);
-        imageView.setY(87.75);
+        imageView.setFitWidth(456);
+        imageView.setFitHeight(300);
 
 
-        this.transition = new PathTransition(duration, line, imageView);
-        this.getChildren().addAll(imageView, imageView2, imageView3);
+        rail.setFill(Color.BLACK);
+        rail.setTranslateY(45);
+
+
+        this.transition = new PathTransition(duration, trainLine, imageView);
+        this.transitionRail = new PathTransition(duration, rail);
+
+
+        this.setCenter(new Pane(rail, imageView2,  imageView));
     }
 
     public void animationPlay()
@@ -54,7 +62,7 @@ public class DepartureStartUI extends Pane {
                 duration,
                 te -> {
                     getChildren().clear();
-                    getChildren().add(AppUI);
+                    setCenter(AppUI);
                 }
         ));
         timeline.play();

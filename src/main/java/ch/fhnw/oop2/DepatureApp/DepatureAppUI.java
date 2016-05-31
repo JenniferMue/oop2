@@ -218,6 +218,7 @@ public class DepatureAppUI extends BorderPane {
 
         // Center
         splitPane = new SplitPane();
+        splitPane.setDividerPosition(0, 0.3);
         leftSide = new TableView(pm.getDepatures());
         rightSide = new GridPane();
 

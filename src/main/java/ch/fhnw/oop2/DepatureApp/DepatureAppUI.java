@@ -218,6 +218,7 @@ public class DepatureAppUI extends BorderPane {
 
         // Center
         splitPane = new SplitPane();
+        splitPane.setDividerPosition(0, 0.3);
         leftSide = new TableView(pm.getDepatures());
         rightSide = new GridPane();
 
@@ -267,7 +268,7 @@ public class DepatureAppUI extends BorderPane {
         rightSide.getRowConstraints().addAll(rc, rc, rc, rc, rc, rc); // Alle Zeilen sollen wachsen
 
         // fill rightSide
-        rightSide.add(abfahrt, 0, 0);
+        rightSide.add(abfahrt, 1, 0);
         rightSide.add(nach, 0, 1);
         rightSide.add(zugnummer, 0, 2);
         rightSide.add(gleis, 0, 3);

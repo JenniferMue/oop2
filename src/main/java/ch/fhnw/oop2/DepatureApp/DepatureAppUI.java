@@ -62,7 +62,7 @@ public class DepatureAppUI extends BorderPane {
     private TableColumn<Departure, Node> led;
 
 
-    // Attribute für rechten Bereich (rightside)
+    // Attribute für rechteen Bereich (rightside)
     private Label abfahrt;
     private Label nach;
     private Label zugnummer;

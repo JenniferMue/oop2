@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Created by Jennifer Müller on 24.04.2016.
+ * Creaeted by Jennifer Müller on 24.04.2016.
  */
 public class DepartureAppApplication extends Application {
 

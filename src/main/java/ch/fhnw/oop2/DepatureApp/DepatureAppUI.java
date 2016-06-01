@@ -47,7 +47,7 @@ public class DepatureAppUI extends BorderPane {
     private ComboBox<Locale> language;
     private LanguageHandler languagehandler;
     private TextField suche;
-    private Date date;
+
 
     // Center
     private SplitPane splitPane;
@@ -55,7 +55,6 @@ public class DepatureAppUI extends BorderPane {
     private GridPane rightSide;// rechte Seite für das Center
 
     //Linke Seite (leftSide)
-    private TableColumn status; // TODO Object Bild einfügen
     private TableColumn<Departure, String> departure;
     private TableColumn<Departure, String> to;
     private TableColumn<Departure, String> track;
@@ -157,7 +156,6 @@ public class DepatureAppUI extends BorderPane {
 
     private void initializeControls() {
         // Linker Bereich
-        status = new TableColumn();
         departure = new TableColumn();
         departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
         to = new TableColumn();
@@ -207,7 +205,6 @@ public class DepatureAppUI extends BorderPane {
         FontAwesomeIconView startIcon = new FontAwesomeIconView(FontAwesomeIcon.PLAY);
         start = new Button("", startIcon);
         startIcon.setId("Icon");
-        date = new Date();
 
 
         //construct languagehandler with ComboBox
@@ -225,7 +222,6 @@ public class DepatureAppUI extends BorderPane {
         rightSide = new GridPane();
 
         // Linker Bereich
-        status = new TableColumn();
         departure = new TableColumn("Abfahrt");
         departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
         to = new TableColumn("nach");
@@ -258,7 +254,7 @@ public class DepatureAppUI extends BorderPane {
         setCenter(splitPane);
 
         // fill leftside (TableView) of Splitpane
-        leftSide.getColumns().addAll(led, status, departure, to, track);
+        leftSide.getColumns().addAll(led, departure, to, track);
 
         // rightSide (Gridpane)
         ColumnConstraints cc = new ColumnConstraints();

@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created by Jennifer Müller on 02.05.2016.
+ * Creeated by Jennifer Müller on 02.05.2016.
  */
 
 public class Departure {

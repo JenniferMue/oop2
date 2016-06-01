@@ -221,7 +221,26 @@ public class DepatureAppUI extends BorderPane {
         leftSide = new TableView(pm.getDepatures());
         rightSide = new GridPane();
 
+        // Linker Bereich
+        status = new TableColumn();
+        departure = new TableColumn("Abfahrt");
+        departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
+        to = new TableColumn("nach");
+        to.setCellValueFactory(param -> param.getValue().inRichtungProperty());
+        track = new TableColumn("Gleis");
+        track.setCellValueFactory(param -> param.getValue().gleisNummerProberty());
 
+        // Rechter Bereich
+        abfahrt = new Label("Abfahrt");
+        nach = new Label("nach");
+        zugnummer = new Label("Zugnummer");
+        gleis = new Label("Gleis");
+        zwischehalte = new Label("Zwischenhalte");
+        tfAbfahrt = new TextField();
+        tfNach = new TextField();
+        tfZugnummer = new TextField();
+        tfGleis = new TextField();
+        taZwischenhalte = new TextArea();
     }
 
     private void layoutControls() {
@@ -267,7 +286,7 @@ public class DepatureAppUI extends BorderPane {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
-        undo.setOnAction(event -> pm.undo());
+      //  undo.setOnAction(event -> pm.undo());
 
 
 

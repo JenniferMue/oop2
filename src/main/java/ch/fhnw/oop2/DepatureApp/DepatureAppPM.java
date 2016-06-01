@@ -101,18 +101,9 @@ public class DepatureAppPM {
     public void removeDeparture(TableView tableView) {
         departures.remove(tableView.getSelectionModel().getSelectedIndex());
     }
-    public void undo() {
-        if (departures.equals("neu")) {
-            try {
-                departures.remove(tableView.getSelectionModel().getSelectedIndex());
-            } catch (Exception e) {
-            }
-        }
-    }
 
 
-
-        //Getter Setter
+    //Getter Setter
 
     public String getApplicationTitle() {
         return applicationTitle.get();

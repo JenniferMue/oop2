@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public class DepartureStartUI extends BorderPane {
 
     private DepatureAppUI AppUI;
-    final Line rail = new Line(0, 400, 1000, 400);
+    final Line rail = new Line(10, 400, 1000, 400);
     final Line trainLine = new Line(200, 430, 760, 430);
 
     final PathTransition transition;

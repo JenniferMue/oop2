@@ -51,7 +51,7 @@ public class DepatureAppPM {
                 }
             });
         } catch (IOException e) {
-            throw new IllegalStateException("save failed");
+            throw new IllegalStateException("saive failed");
         }
     }
 

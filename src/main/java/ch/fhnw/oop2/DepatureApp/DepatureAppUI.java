@@ -35,6 +35,7 @@ public class DepatureAppUI extends BorderPane {
     // Attribute Buttons etc. setzen für Top Bereich
     private HBox top;
     private HBox center;
+    private HBox spacePane1;
     private Button speichern;
     private Button neu;
     private Button löschen;
@@ -211,7 +212,10 @@ public class DepatureAppUI extends BorderPane {
         //construct languagehandler with ComboBox
         languagehandler = new LanguageHandler(this);
         language = new ComboBox<>(languagehandler.getList());
+        language.setMinHeight(48);
         suche = new TextField("Suche");
+        suche.setMinHeight(48);
+        suche.setMinWidth(280);
         top = new HBox();
 
         // Center
@@ -245,7 +249,7 @@ public class DepatureAppUI extends BorderPane {
 
     private void layoutControls() {
         //put top in Borderpane
-        top.getChildren().addAll(speichern, neu, löschen, undo, redo, zug, anzeigeTafel, pause, start, language, suche);
+        top.getChildren().addAll(speichern, neu, löschen, undo, redo, zug, anzeigeTafel, pause, start, suche, language);
         setTop(top);
 
         // Splitpane layout

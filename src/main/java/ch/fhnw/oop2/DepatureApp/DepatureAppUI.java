@@ -260,7 +260,7 @@ public class DepatureAppUI extends BorderPane {
         rightSide.add(tfGleis, 1, 3);
         rightSide.add(taZwischenhalte, 1, 4);
 
-        // fill Splitpane with leftSide and rightSide
+        // fill Splitpane with leftSide and rwightSide
         splitPane.getItems().addAll(leftSide, rightSide);
     }
 

@@ -12,7 +12,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 /**
- * Created by Steven on 27.05.16.
+ * Createwd by Steven on 27.05.16.
  */
 public class DepartureStartUI extends BorderPane {
 

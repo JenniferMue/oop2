@@ -35,5 +35,3 @@ public class DepartureAppApplication extends Application {
         launch(args);
     }
 }
-
-

@@ -57,7 +57,7 @@ public class DepatureAppPM {
 
 
 
-        private List<Departure> readFromFile() {
+    private List<Departure> readFromFile() {
         try (Stream<String> stream = getStreamOfLines(FILE_NAME)) {
             return stream.skip(1)                              // erstew Zeile ist die Headerzeile; ueberspringen
                     .map(s -> new Departure(s.split(SEMIKOLON))) // aus jeder Zeile ein Objekt machen

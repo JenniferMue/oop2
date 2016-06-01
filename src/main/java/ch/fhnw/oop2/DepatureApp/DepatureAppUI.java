@@ -163,6 +163,7 @@ public class DepatureAppUI extends BorderPane {
         track = new TableColumn();
         track.setCellValueFactory(param -> param.getValue().gleisNummerProberty());
         led = new TableColumn();
+        led.setMaxWidth(750);
         led.setCellValueFactory(param -> param.getValue().ledProperty());
 
         // Rechter Bereich

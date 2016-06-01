@@ -28,6 +28,7 @@ public class DepartureStartUI extends BorderPane {
 
     private ImageView imageView;
     private ImageView imageView2;
+    private ImageView background;
 
 
 
@@ -39,6 +40,10 @@ public class DepartureStartUI extends BorderPane {
         imageView2.setFitHeight(200);
         imageView2.setX(625);
         imageView2.setY(200.75);
+
+        this.background = new ImageView(new Image("background.png"));
+        background.setFitWidth(1000);
+        background.setFitHeight(500);
 
 
         this.imageView = new ImageView(new Image("zugx.png"));
@@ -54,7 +59,7 @@ public class DepartureStartUI extends BorderPane {
         this.transitionRail = new PathTransition(duration, rail);
 
 
-        this.setCenter(new Pane(rail, imageView2,  imageView));
+        this.setCenter(new Pane(background, rail, imageView2,  imageView));
     }
 
     public void animationPlay()

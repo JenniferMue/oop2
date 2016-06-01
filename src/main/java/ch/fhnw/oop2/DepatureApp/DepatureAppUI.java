@@ -52,7 +52,7 @@ public class DepatureAppUI extends BorderPane {
     // Center
     private SplitPane splitPane;
     public TableView<Departure> leftSide;    // linke Seite für das Center
-    private GridPane rightSide;             // rechte Seite für das Center
+    private GridPane rightSide;// rechte Seite für das Center
 
     //Linke Seite (leftSide)
     private TableColumn status; // TODO Object Bild einfügen
@@ -220,6 +220,8 @@ public class DepatureAppUI extends BorderPane {
         splitPane = new SplitPane();
         splitPane.setDividerPosition(0, 0.3);
         leftSide = new TableView(pm.getDepatures());
+        leftSide.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        leftSide.setMinWidth(200);
         rightSide = new GridPane();
 
         // Linker Bereich

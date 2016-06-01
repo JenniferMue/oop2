@@ -14,6 +14,8 @@ import javafx.util.Duration;
 /**
  * Createwd by Steven on 27.05.16.
  */
+
+
 public class DepartureStartUI extends BorderPane {
 
     private DepatureAppUI AppUI;

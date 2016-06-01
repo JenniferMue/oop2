@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created by Jennifer Müller on 02.05.2016.
+ * Creeated by Jennifer Müller on 02.05.2016.
  */
 
 public class Departure {
@@ -202,7 +202,26 @@ public class Departure {
             }
         }
 
+        /*public void undo()
+        {
+            if (depatures.equals("add"))
+            {
+                try
+                {
+                    model.re(tier);
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            else if (aktion.equals("remove"))
+            {
+                model.addTier(position, tier);
+            }
+            else
+                ;
 
+        }*/
 
 
         private List<Departure> readFromFile() {

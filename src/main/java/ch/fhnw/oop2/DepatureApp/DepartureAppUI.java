@@ -246,7 +246,7 @@ public class DepartureAppUI extends BorderPane {
         splitPane.setDividerPosition(0, 0.3);
         leftSide = new TableView(pm.getDepatures());
         leftSide.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        leftSide.setMinWidth(200);
+        leftSide.setMinWidth(320);
         rightSide = new GridPane();
 
         /*------------------------

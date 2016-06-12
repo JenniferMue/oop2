@@ -1,7 +1,6 @@
 package ch.fhnw.oop2.DepatureApp;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -15,7 +14,7 @@ public class DepartureAppApplication extends Application {
 
         DepatureAppPM pm = new DepatureAppPM();
 
-        DepatureAppUI rootPanel = new DepatureAppUI(pm);
+        DepartureAppUI rootPanel = new DepartureAppUI(pm);
 
         DepartureStartUI startUI = new DepartureStartUI(rootPanel);
         startUI.setPrefSize(1000, 500);

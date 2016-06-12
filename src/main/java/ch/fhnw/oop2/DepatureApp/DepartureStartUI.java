@@ -18,7 +18,7 @@ import javafx.util.Duration;
 
 public class DepartureStartUI extends BorderPane {
 
-    private DepatureAppUI AppUI;
+    private DepartureAppUI AppUI;
     final Line rail = new Line(10, 400, 1000, 400);
     final Line trainLine = new Line(200, 430, 760, 430);
 
@@ -32,7 +32,7 @@ public class DepartureStartUI extends BorderPane {
 
 
 
-    public DepartureStartUI(DepatureAppUI AppUI) {
+    public DepartureStartUI(DepartureAppUI AppUI) {
         this.AppUI = AppUI;
 
         this.imageView2 = new ImageView(new Image("station.png"));

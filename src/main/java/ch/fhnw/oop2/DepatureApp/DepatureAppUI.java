@@ -290,7 +290,7 @@ public class DepatureAppUI extends BorderPane {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
-        //  undo.setOnAction(event -> pm.undo());
+
 
 
 

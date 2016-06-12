@@ -11,10 +11,10 @@ import java.util.ResourceBundle;
  * Created by Steven on 24.05.16.
  */
 public class LanguageHandler {
-    private DepatureAppUI ui;
+    private DepartureAppUI ui;
     private ObservableList<Locale> ol;
 
-    public LanguageHandler(DepatureAppUI ui) {
+    public LanguageHandler(DepartureAppUI ui) {
         this.ui = ui;
         this.ol = FXCollections.observableArrayList();
         ol.addAll(Locale.GERMAN, Locale.ENGLISH, Locale.ITALIAN, Locale.FRENCH);

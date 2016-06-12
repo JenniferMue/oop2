@@ -24,14 +24,13 @@ import java.util.Locale;
  * Created by Jennifer Müller on 24.04.2016.
  */
 
-public class DepatureAppUI extends BorderPane {
+public class DepartureAppUI extends BorderPane {
+
 
     /*------------------------
-        Attribute
+        Attribute - Inhalt
      -------------------------*/
-
     private final DepatureAppPM pm;
-
 
     // Attribute Buttons etc. setzen für Top Bereich
     private HBox top;
@@ -50,20 +49,31 @@ public class DepatureAppUI extends BorderPane {
     private LanguageHandler languagehandler;
     private TextField suche;
 
+    /*------------------------
+        Attribute - Layout
+     -------------------------*/
 
-    // Center
+    // Center. Im Center ist ein Splitpane implementiert
     private SplitPane splitPane;
-    public TableView<Departure> leftSide;    // linke Seite für das Center
-    private GridPane rightSide;// rechte Seite für das Center
 
-    //Linke Seite (leftSide)
+    // im Splitpane wird eine linke und eine rechte Seite eingefügt
+    // die linke Seite ist eine Tableview
+    public TableView<Departure> leftSide;
+    // die rechte Seite besteht aus einem Splitpane
+    private GridPane rightSide;
+
+    /*------------------------
+        Attribute - Layout - linke Seite
+     -------------------------*/
     private TableColumn<Departure, String> departure;
     private TableColumn<Departure, String> to;
     private TableColumn<Departure, String> track;
     private TableColumn<Departure, Node> led;
 
+    /*------------------------
+     Attribute - Layout - rechte Seite
+     -------------------------*/
 
-    // Attribute für rechteen Bereich (rightside)
     private Label abfahrt;
     private Label nach;
     private Label zugnummer;
@@ -77,61 +87,67 @@ public class DepatureAppUI extends BorderPane {
 
 
      /*------------------------
-        Konstruktor
+        Setter Methoden für Labels
      -------------------------*/
 
-    //setterMethode für Labels
-    public void setAbfahrt(String text){
+    //setter Methoden für Labels
+    public void setAbfahrt(String text) {
         abfahrt.textProperty().setValue(text);
     }
 
-    public void setLed(String text) { led.textProperty().setValue(text);}
-
-    public void setGleis(String text){gleis.textProperty().setValue(text);
+    public void setLed(String text) {
+        led.textProperty().setValue(text);
     }
 
-    public void setZugnummer(String text){
+    public void setGleis(String text) {
+        gleis.textProperty().setValue(text);
+    }
+
+    public void setZugnummer(String text) {
         zugnummer.textProperty().setValue(text);
     }
 
-    public void setZwischenhalte(String text){
+    public void setZwischenhalte(String text) {
         zwischehalte.textProperty().setValue(text);
     }
 
-    public void setNach(String text){
+    public void setNach(String text) {
         nach.textProperty().setValue(text);
     }
 
-    public void setDeparture(String text){
+    public void setDeparture(String text) {
         departure.textProperty().setValue(text);
     }
 
-    public void setTo(String text){
+    public void setTo(String text) {
         to.textProperty().setValue(text);
     }
 
-    public void setTrack(String text){
+    public void setTrack(String text) {
         track.textProperty().setValue(text);
     }
 
-
-    public DepatureAppUI(DepatureAppPM pm) {
+    /*------------------------
+          Konstruktor
+     -------------------------*/
+    public DepartureAppUI(DepatureAppPM pm) {
         this.pm = pm;
         initializeControls();
         layoutControls();
         addEventHandlers();
         addValueChangedListeners();
         addBindings();
-        language.getSelectionModel().select(0);
+        addLanguageChanger();
+
     }
 
-
-
+    /*------------------------
+      Methoden für Konstruktor
+   -------------------------*/
     private void addValueChangedListeners() {
         leftSide.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             pm.setSelectedDeparture(newValue);
         });
-
 
         pm.selectedDepartureProperty().addListener((observable, oldValue, newValue) -> {
             if (oldValue != null) {
@@ -141,7 +157,6 @@ public class DepatureAppUI extends BorderPane {
                 taZwischenhalte.textProperty().unbindBidirectional(oldValue.ueberProperty());
                 tfNach.textProperty().unbindBidirectional(oldValue.inRichtungProperty());
             }
-
             if (newValue != null) {
                 tfAbfahrt.textProperty().bindBidirectional(newValue.uhrzeitProperty());
                 tfGleis.textProperty().bindBidirectional(newValue.gleisProperty());
@@ -152,12 +167,10 @@ public class DepatureAppUI extends BorderPane {
         });
     }
 
-     /*------------------------
-        Methoden
-     -------------------------*/
-
     private void initializeControls() {
-        // Linker Bereich
+        /*------------------------
+          Layout - Linker Bereich
+         -------------------------*/
         departure = new TableColumn();
         departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
         to = new TableColumn();
@@ -168,7 +181,9 @@ public class DepatureAppUI extends BorderPane {
         led.setMaxWidth(750);
         led.setCellValueFactory(param -> param.getValue().ledProperty());
 
-        // Rechter Bereich
+        /*------------------------
+          Layout - Rechter Bereich
+         -------------------------*/
         abfahrt = new Label();
         nach = new Label();
         zugnummer = new Label();
@@ -180,7 +195,9 @@ public class DepatureAppUI extends BorderPane {
         tfGleis = new TextField();
         taZwischenhalte = new TextArea();
 
-        // Top
+        /*------------------------
+          Layout - Top-Bereich
+         -------------------------*/
         FontAwesomeIconView saveIcon = new FontAwesomeIconView(FontAwesomeIcon.SAVE);
         speichern = new Button("", saveIcon);
         saveIcon.setId("Icon");
@@ -210,7 +227,9 @@ public class DepatureAppUI extends BorderPane {
         startIcon.setId("Icon");
 
 
-        //construct languagehandler with ComboBox
+        /*------------------------
+          Layout - LanguageHandler
+         -------------------------*/
         languagehandler = new LanguageHandler(this);
         language = new ComboBox<>(languagehandler.getList());
         language.setMinHeight(48);
@@ -220,7 +239,9 @@ public class DepatureAppUI extends BorderPane {
         suche.setMinWidth(280);
         top = new HBox();
 
-        // Center
+        /*------------------------
+          Layout - Center
+         -------------------------*/
         splitPane = new SplitPane();
         splitPane.setDividerPosition(0, 0.3);
         leftSide = new TableView(pm.getDepatures());
@@ -228,7 +249,9 @@ public class DepatureAppUI extends BorderPane {
         leftSide.setMinWidth(200);
         rightSide = new GridPane();
 
-        // Linker Bereich
+        /*------------------------
+          Layout - linker Bereich
+         -------------------------*/
         departure = new TableColumn("Abfahrt");
         departure.setCellValueFactory(param -> param.getValue().uhrzeitProperty());
         to = new TableColumn("nach");
@@ -236,7 +259,9 @@ public class DepatureAppUI extends BorderPane {
         track = new TableColumn("Gleis");
         track.setCellValueFactory(param -> param.getValue().gleisNummerProberty());
 
-        // Rechter Bereich
+        /*------------------------
+          Layout - rechter Bereich
+         -------------------------*/
         abfahrt = new Label("Abfahrt");
         nach = new Label("nach");
         zugnummer = new Label("Zugnummer");
@@ -250,29 +275,29 @@ public class DepatureAppUI extends BorderPane {
     }
 
     private void layoutControls() {
-        //put top in Borderpane
+        // Top - Bereich einbinden
         top.getChildren().addAll(speichern, neu, löschen, undo, redo, zug, anzeigeTafel, pause, start, suche, language);
         setTop(top);
 
-        // Splitpane layout
+        // Horizontales splitting der Splitpane
         splitPane.setOrientation(Orientation.HORIZONTAL);
 
-        // put Splitpane in center of Borderpane
+        // Splitpane in das Zentrum vom Bodrderpane einbinden
         setCenter(splitPane);
 
-        // fill leftside (TableView) of Splitpane
+        // linke Seite befüllen
         leftSide.getColumns().addAll(led, departure, to, track);
 
-        // rightSide (Gridpane)
+        //  rechte Seite - Tableview Kollonnen bestimmen
         ColumnConstraints cc = new ColumnConstraints();
         cc.setHgrow(Priority.ALWAYS);
         rightSide.getColumnConstraints().addAll(cc, cc, cc, cc); // alle Spalten sollen wachsen
-
+        // rechte Seite - Tableview Zeilen bestimmen
         RowConstraints rc = new RowConstraints();
         rc.setVgrow(Priority.ALWAYS);
         rightSide.getRowConstraints().addAll(rc, rc, rc, rc, rc, rc); // Alle Zeilen sollen wachsen
 
-        // fill rightSide
+        // rechte Seite layouten
         rightSide.add(abfahrt, 0, 0);
         rightSide.add(nach, 0, 1);
         rightSide.add(zugnummer, 0, 2);
@@ -284,19 +309,17 @@ public class DepatureAppUI extends BorderPane {
         rightSide.add(tfGleis, 1, 3);
         rightSide.add(taZwischenhalte, 1, 4);
 
-        // fill Splitpane with leftSide and rwightSide
+        // Rechte und linke Seite in Splitpane implementieren
         splitPane.getItems().addAll(leftSide, rightSide);
+        splitPane.setDividerPosition(0, 0.1);
     }
 
     private void addEventHandlers() {
         speichern.setOnAction(event -> pm.save());
-        neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
+        neu.setOnAction(event -> pm.addNewDeparture(leftSide));
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
-        //  undo.setOnAction(event -> pm.undo());
 
-
-
-        //change the language to new value
+        //Sprache nach ausgewähltem Modus ändern
         language.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Locale>() {
             @Override
             public void changed(ObservableValue<? extends Locale> observable, Locale oldValue, Locale newValue) {
@@ -308,6 +331,10 @@ public class DepatureAppUI extends BorderPane {
     private void addBindings() {
     }
 
+    private void addLanguageChanger() {
+        language.getSelectionModel().select(0);
+
+    }
 }
 
 

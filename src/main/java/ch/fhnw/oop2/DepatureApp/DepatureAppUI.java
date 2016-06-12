@@ -214,6 +214,7 @@ public class DepatureAppUI extends BorderPane {
         languagehandler = new LanguageHandler(this);
         language = new ComboBox<>(languagehandler.getList());
         language.setMinHeight(48);
+        language.setId("lh");
         suche = new TextField("Suche");
         suche.setMinHeight(48);
         suche.setMinWidth(280);

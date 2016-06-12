@@ -1,7 +1,6 @@
 .root {
--fx-base: rgb(200,200,200);
--fx-background: rgb(210,210,210);
--fx-control-inner-background:  rgb(230,230,230);
+-fx-background: rgb(238,232,205);
+-fx-control-inner-background:  rgb(255,255,255);
 }
 
 .tab {
@@ -17,7 +16,11 @@
 linear-gradient(to bottom, derive(-fx-base,+50%), derive(-fx-base,-40%), derive(-fx-base,-20%));
 }
 
+#lh {
+-fx-base: rgb(178,210, 238);
+}
 .button {
+-fx-base: rgb(178,210, 238),
         linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
         linear-gradient(#020b02, #3a3a3a),
         linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),

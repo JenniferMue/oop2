@@ -33,6 +33,7 @@ public class DepatureAppPM {
 
     private TableView<Departure> tableView = new TableView<>();
 
+
     public DepatureAppPM() {
         departures.addAll(readFromFile());
         setSelectedDeparture(departures.get(0));
@@ -103,6 +104,26 @@ public class DepatureAppPM {
     }
 
 
+    // TODO Undo-Methode
+
+    /*public void undo(){
+        Command lastCommand = undoCommands.get(0);
+        undoCommands.remove(0);
+        lastCommand.undo();
+    }
+
+    // TODO Redo-Methode
+
+    public void redo(){
+        Command lastCommand = redoCommands.get(0);
+        redoCommands.remove(0);
+        lastCommand.redo();
+    }
+
+    public void setNewAbfahrt(DepatureAppPM pm, Command newAbfahrt){
+        selectedDeparture.setNewAbfahrt();
+    }
+*/
     //Getter Setter
 
     public String getApplicationTitle() {

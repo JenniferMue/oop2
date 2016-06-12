@@ -2,6 +2,7 @@ package ch.fhnw.oop2.DepatureApp;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
@@ -290,7 +291,7 @@ public class DepatureAppUI extends BorderPane {
         speichern.setOnAction(event -> pm.save());
         neu.setOnAction(event -> pm.addNewDeparture(leftSide)); // auf der rechten Seite immer Methoden auf dem Mode
         löschen.setOnAction(event -> pm.removeDeparture(leftSide));
-
+        //  undo.setOnAction(event -> pm.undo());
 
 
 

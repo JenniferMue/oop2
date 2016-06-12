@@ -15,6 +15,7 @@ public class DepartureAppApplication extends Application {
         DepatureAppPM pm = new DepatureAppPM();
 
         DepartureAppUI rootPanel = new DepartureAppUI(pm);
+        rootPanel.setPrefSize(1000, 500);
 
         DepartureStartUI startUI = new DepartureStartUI(rootPanel);
         startUI.setPrefSize(1000, 500);
